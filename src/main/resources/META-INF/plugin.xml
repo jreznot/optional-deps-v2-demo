@@ -1,18 +1,20 @@
-<!-- Plugin Configuration File. Read more: https://plugins.jetbrains.com/docs/intellij/plugin-configuration-file.html -->
-<idea-plugin>
+<idea-plugin package="com.github.jreznot.optionaldepsv2demo">
     <id>com.github.jreznot.optionaldepsv2demo</id>
     <name>optional-deps-v2-demo</name>
     <vendor>jreznot</vendor>
 
-    <depends>com.intellij.modules.platform</depends>
+    <dependencies>
+        <plugin id="com.intellij.modules.platform"/>
+        <module name="intellij.platform.lvcs.impl"/>
+    </dependencies>
+
+    <content>
+        <module name="my.optional"/>
+    </content>
 
     <resource-bundle>messages.MyBundle</resource-bundle>
 
     <extensions defaultExtensionNs="com.intellij">
-        <toolWindow factoryClass="com.github.jreznot.optionaldepsv2demo.toolWindow.MyToolWindowFactory" id="MyToolWindow"/>
+        <backgroundPostStartupActivity implementation="com.github.jreznot.optionaldepsv2demo.MainStartupActivity"/>
     </extensions>
-
-    <applicationListeners>
-        <listener class="com.github.jreznot.optionaldepsv2demo.listeners.MyApplicationActivationListener" topic="com.intellij.openapi.application.ApplicationActivationListener"/>
-    </applicationListeners>
 </idea-plugin>

@@ -1,0 +1,10 @@
+<idea-plugin package="com.github.jreznot.optionaldepsv2demo.subpkg">
+    <dependencies>
+        <plugin id="org.jetbrains.kotlin"/>
+    </dependencies>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <backgroundPostStartupActivity
+                implementation="com.github.jreznot.optionaldepsv2demo.subpkg.SubModuleStartupActivity"/>
+    </extensions>
+</idea-plugin>
